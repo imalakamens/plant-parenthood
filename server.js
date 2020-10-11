@@ -19,6 +19,11 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 /* Put API (AJAX) routes here, BEFORE the 'catch all' route;
 the catch-all route matches EVERY request */
+app.use('api/users', require('/routes/api/users'));
+/* remove comment below when it's time for auth
+I think it might throw an error... */
+//app.use(require('./config/auth'));
+app.use('api/plants', require('/routes/api/plants'));
 
 
 // Catch all route
