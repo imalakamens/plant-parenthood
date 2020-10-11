@@ -1,9 +1,15 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Navigation() {
     return(
         <nav>
-            Hi this is a nav component!
+            <NavLink exact to="/plants">
+                Plants
+            </NavLink>
+            <NavLink exact to="/addplant">
+                Place Plant
+            </NavLink>
         </nav>
     );
 }
