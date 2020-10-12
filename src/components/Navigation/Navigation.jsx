@@ -4,6 +4,9 @@ import { NavLink } from 'react-router-dom';
 function Navigation() {
     return(
         <nav>
+            <NavLink exact to="/">
+                Home
+            </NavLink>
             <NavLink exact to="/plants">
                 Plants
             </NavLink>
