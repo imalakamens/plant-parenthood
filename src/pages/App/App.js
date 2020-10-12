@@ -2,8 +2,8 @@ import React from 'react';
 import logo from '../../logo.svg';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Plants from '../Plants/Plants';
-import AddPlant from '../AddPlant/AddPlant';
+import PlantListPage from '../PlantListPage/PlantListPage';
+import AddPlantPage from '../AddPlantPage/AddPlantPage';
 import Navigation from '../../components/Navigation/Navigation';
 
 function App() {
@@ -13,10 +13,10 @@ function App() {
       <Navigation />
       <Switch>
         <Route exact path='/plants'>
-          <Plants />
+          <PlantListPage />
         </Route>
         <Route exact path='/addplant'>
-          <AddPlant />
+          <AddPlantPage />
         </Route>
       </Switch>
       </header>
