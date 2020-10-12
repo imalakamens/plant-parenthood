@@ -6,6 +6,7 @@ import PlantListPage from '../PlantListPage/PlantListPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
 import Navigation from '../../components/Navigation/Navigation';
 import SignUpPage from '../SignUpPage/SignUpPage';
+import LogInPage from '../LogInPage/LogInPage';
 import userService from '../../utils/userService';
 
 class App extends Component {
@@ -17,14 +18,20 @@ class App extends Component {
 
   }
 
-  getInitialState() {
+  getInitialState = () => {
     // come back and fully code this out when you know what's going on
+  }
+
+  handleSignupOrLogin = () => {
+    this.setState({ user: userService.getUser() });
   }
 
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null }); 
   }
+
+  /*----lifecycle methods----*/
 
   render() {
     return (
@@ -42,7 +49,14 @@ class App extends Component {
             <AddPlantPage />
           </Route>
           <Route exact path="/signup">
-            <SignUpPage />
+            <SignUpPage 
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+          </Route>
+          <Route exact path="/login">
+            <LogInPage
+            handleSignupOrLogin={this.handleSignupOrLogin}
+            />
           </Route>
         </Switch>
         </header>

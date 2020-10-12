@@ -20,6 +20,9 @@ const Navigation = (props) => {
         <NavLink exact to="/signup">
             Sign Up |
         </NavLink>
+        <NavLink exact to="/login">
+            Log In |
+        </NavLink>
         <NavLink exact to="/plants">
             Plants |
         </NavLink>
