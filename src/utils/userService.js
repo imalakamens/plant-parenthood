@@ -14,8 +14,6 @@ function signup(user) {
       throw new Error("Email already taken!");
     })
     // Parameter deconstructing?
-
-
 }
 
 export default {

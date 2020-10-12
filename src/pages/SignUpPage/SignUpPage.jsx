@@ -31,6 +31,21 @@ class SignUpPage extends Component {
         }
       };
 
+    handleChange = (e) => {
+        const formData = {
+            ...this.state.formData,
+            [e.target.name]: e.target.value,
+        };
+        this.setState({
+            formData,
+            invalidForm: !this.formRef.current.checkValidity(),
+        });
+    };  
+
+    updateMessage = (msg) => {
+        this.setState({ message: msg });
+    };
+
     render() {
         return (
             <>
