@@ -1,18 +1,35 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
-function Navigation() {
+const Navigation = (props) => {
+    let nav = props.user ? 
+    <div>
+        <NavLink exact to="/">
+            Now Logged In |
+        </NavLink>
+        <NavLink exact to="/plants">
+            Plants |
+        </NavLink>
+        <NavLink exact to="/addplant">
+            Place Plant |
+        </NavLink>
+        <Link to="" onClick={props.handleLogout}>Logout</Link>
+    </div>
+        :
+    <div>
+        <NavLink exact to="/signup">
+            Sign Up |
+        </NavLink>
+        <NavLink exact to="/plants">
+            Plants |
+        </NavLink>
+        <NavLink exact to="/addplant">
+            Place Plant
+        </NavLink>
+    </div>
     return(
         <nav>
-            <NavLink exact to="/signup">
-                Sign Up |
-            </NavLink>
-            <NavLink exact to="/plants">
-                Plants |
-            </NavLink>
-            <NavLink exact to="/addplant">
-                Place Plant
-            </NavLink>
+            {nav}
         </nav>
     );
 }

@@ -6,8 +6,8 @@ const logger = require('morgan');
 
 
 /* load the secrets from .env */
-require('./config/database');
 require('dotenv').config();
+require('./config/database');
 
 const app = express();
 app.use(logger('dev'));

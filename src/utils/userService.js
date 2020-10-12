@@ -1,7 +1,9 @@
+import { token } from 'morgan';
+import tokenService from './tokenService';
+
 const BASE_URL = '/api/users/';
 
 function signup(user) {
-  
     return fetch(BASE_URL + 'signup', {
       method: 'POST',
       headers: new Headers({
@@ -10,12 +12,22 @@ function signup(user) {
       body: JSON.stringify(user),   
     })
     .then((res) => {
-      if (res.ok) res.json();
+      if (res.ok) return res.json();
       throw new Error("Email already taken!");
     })
-    // Parameter deconstructing?
+    .then(({ token }) => tokenService.setToken(token));
+}
+
+function getUser() {
+  return tokenService.getUserFromToken();
+}
+
+function logout() {
+  tokenService.removeToken();
 }
 
 export default {
-  signup
-}
+  signup,
+  getUser,
+  logout
+};
