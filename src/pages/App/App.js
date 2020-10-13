@@ -13,6 +13,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      plants: [],
       user: userService.getUser()
     };
 
