@@ -11,7 +11,12 @@ module.exports = {
 }
 
 async function deleteOne(req, res) {
-  
+  try {
+    const deletedPlant = await Plant.findByIdAndRemove(req.params.id);
+    res.status(200).json(deletedPlant)
+  } catch(err) {
+    res.status(404).json(err)
+  }
 }
 
 async function update(req, res) {
