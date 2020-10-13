@@ -19,6 +19,7 @@ class LogInPage extends Component {
         try {
             await userService.login(this.state);
             this.props.handleSignupOrLogin();
+            this.props.history.push('/');
         } catch (err) {
             // CHANGE THIS MESSAGE BEFORE FINAL VERSION
             alert('Invald login message (this should not be in final version)');

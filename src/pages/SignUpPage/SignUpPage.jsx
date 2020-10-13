@@ -25,7 +25,7 @@ class SignUpPage extends Component {
     
           this.props.handleSignupOrLogin();
           
-          this.props.history.push = ("/");
+          this.props.history.push('/');
         } catch (err) {
           this.updateMessage(err.message);
         }
