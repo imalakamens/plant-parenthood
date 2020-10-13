@@ -20,11 +20,21 @@ async function deleteOne(req, res) {
 }
 
 async function update(req, res) {
-
+  try {
+    const updatedPlant = await Plant.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.status(200).json(updatedPlant);
+  } catch(err) {
+    res.status(404).json(err)
+  }
 }
 
 async function show(req, res) {
-
+  try {
+    const plant = await Plant.findById(req.params.id);
+    res.status(200).json(plant)
+  } catch(err) {
+    res.status(404).json(err)
+  }
 }
 
 async function create(req, res) {
