@@ -1,8 +1,8 @@
+const cors = require('cors')
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
-// const cors = require('cors')
 
 
 /* load the secrets from .env */
@@ -13,6 +13,7 @@ const plantsRouter = require('./routes/api/plants');
 const usersRouter = require('./routes/api/users');
 
 const app = express();
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 /* Configure both serve-favicon and static middleware 

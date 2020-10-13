@@ -6,9 +6,12 @@ const plantSchema = new Schema (
     commonName: String,
     scientificName: String,
     description: String,
-    placementStatus: Boolean,
+    placementStatus: {
+      type: Boolean,
+      default: true
+    },
     owner: {type: Schema.Types.ObjectId, ref: 'User'},
-    notes: [{type: String}]
+    notes: String
   }, {
     timestamps: true
   }

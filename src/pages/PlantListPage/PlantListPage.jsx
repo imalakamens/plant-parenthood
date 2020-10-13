@@ -1,9 +1,15 @@
 import React from 'react'
+import PlantListItem from '../../components/PlantListItem/PlantListItem';
 
 function PlantListPage(props) {
     return (
         <>
-        This is PlantListPage Compenent
+        <h1>Available Plants</h1>
+        <div>
+            {props.plants.map( plant =>
+            <PlantListItem key={plant._id} plant={plant} />
+            )}
+        </div>
         </>
     );
 }

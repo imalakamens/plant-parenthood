@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import logo from '../../logo.svg';
 import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import Navigation from '../../components/Navigation/Navigation';
 import PlantListPage from '../PlantListPage/PlantListPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
-import Navigation from '../../components/Navigation/Navigation';
+import plantService from '../../utils/plantService';
+import userService from '../../utils/userService';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
-import userService from '../../utils/userService';
 
 class App extends Component {
   constructor() {
@@ -17,10 +18,6 @@ class App extends Component {
       user: userService.getUser()
     };
 
-  }
-
-  getInitialState = () => {
-    // come back and fully code this out when you know what's going on
   }
 
   handleSignupOrLogin = () => {
@@ -34,6 +31,11 @@ class App extends Component {
 
   /*----lifecycle methods----*/
 
+  async componentDidMount() {
+    const plants = await plantService.getAll();
+    this.setState({ plants });
+  }
+
   render() {
     return (
       <div className="App">
@@ -44,7 +46,7 @@ class App extends Component {
         />
         <Switch>
           <Route exact path="/plants">
-            <PlantListPage />
+            <PlantListPage plants={this.state.plants} />
           </Route>
           <Route exact path="/addplant" render={() =>
             userService.getUser() ?
