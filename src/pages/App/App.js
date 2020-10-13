@@ -51,16 +51,18 @@ class App extends Component {
             :
             <Redirect to="/login" />
           } />
-          <Route exact path="/signup">
+          <Route exact path="/signup" render={({ history }) =>
             <SignUpPage 
               handleSignupOrLogin={this.handleSignupOrLogin}
+              history={history}
             />
-          </Route>
-          <Route exact path="/login">
+          } />
+          <Route exact path="/login" render={({ history }) =>
             <LogInPage
             handleSignupOrLogin={this.handleSignupOrLogin}
+            history={history}
             />
-          </Route>
+          } />
         </Switch>
         </header>
       </div>
