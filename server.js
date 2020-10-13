@@ -9,6 +9,9 @@ const logger = require('morgan');
 require('dotenv').config();
 require('./config/database');
 
+const plantsRouter = require('./routes/api/plants');
+const usersRouter = require('./routes/api/users');
+
 const app = express();
 app.use(logger('dev'));
 app.use(express.json());
@@ -19,13 +22,12 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 /* Put API (AJAX) routes here, BEFORE the 'catch all' route;
 the catch-all route matches EVERY request */
-app.use('/api/users', require('./routes/api/users'));
+/*---Public API/AJAX Routes---*/
+app.use('/api/users', usersRouter);
 
 app.use(require('./config/auth'));
-/*Protected routes below here...*/
-
-/* come back and un-comment when ready for plant routes */
-// app.use('api/plants', require('./routes/api/plants'));
+/*---Protected API/AJAX Routes---*/
+app.use('/api/plants', plantsRouter);
 
 
 // Catch all route
