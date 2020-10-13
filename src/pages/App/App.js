@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../../logo.svg';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import PlantListPage from '../PlantListPage/PlantListPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
 import Navigation from '../../components/Navigation/Navigation';
@@ -45,9 +45,12 @@ class App extends Component {
           <Route exact path="/plants">
             <PlantListPage />
           </Route>
-          <Route exact path="/addplant">
+          <Route exact path="/addplant" render={() =>
+            userService.getUser() ?
             <AddPlantPage />
-          </Route>
+            :
+            <Redirect to="/login" />
+          } />
           <Route exact path="/signup">
             <SignUpPage 
               handleSignupOrLogin={this.handleSignupOrLogin}

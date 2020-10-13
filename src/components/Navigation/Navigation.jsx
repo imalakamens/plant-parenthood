@@ -24,11 +24,11 @@ const Navigation = (props) => {
             Log In |
         </NavLink>
         <NavLink exact to="/plants">
-            Plants |
+            Plants
         </NavLink>
-        <NavLink exact to="/addplant">
+        {props.user && <NavLink exact to="/addplant">
             Place Plant
-        </NavLink>
+        </NavLink> }
     </div>
     return(
         <nav>
