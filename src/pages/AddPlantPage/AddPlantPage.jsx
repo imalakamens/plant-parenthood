@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-function AddPlantPage(props) {
-    return (
-        <>
-        This is AddPlantPage Compenent
-        </>
-    );
+class AddPlantPage extends Component {
+    render() {
+        return (
+            <>
+            This is AddPlantPage Compenent
+            </>
+        );
+
+    }
 }
 
 export default AddPlantPage;

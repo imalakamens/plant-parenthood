@@ -20,6 +20,16 @@ class App extends Component {
 
   }
 
+  handleAddPlant = async (newPlantData) => {
+    const newPlant = await plantService.create(newPlantData);
+    this.setState(
+      state => ({ 
+        plants: [...state.plants, newPlant],
+      }),
+      () => this.history.push('/')
+    );
+  }
+
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
   }
