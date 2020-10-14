@@ -20,6 +20,16 @@ class App extends Component {
     };
   }
 
+  handleDeletePlant = async (id) => {
+    await plantAPI.deleteOne(id);
+    this.setState(
+      state => ({
+        plants: state.plants.filter( (plant) => plant._id !== id),
+      }),
+      () => this.props.history.push('/')
+    )
+  }
+
   handleAddPlant = async (newPlantData) => {
     const newPlant = await plantAPI.create(newPlantData);
     this.setState(
@@ -59,7 +69,10 @@ class App extends Component {
         {this.state.user ? <h2>Hi, {this.state.user.name}</h2> : <h2>You're Not logged in ☹️</h2> }
         <Switch>
           <Route exact path="/plants">
-            <PlantListPage plants={this.state.plants} />
+            <PlantListPage 
+              plants={this.state.plants} 
+              handleDeletePlant={this.handleDeletePlant}
+            />
           </Route>
           <Route exact path="/addplant" render={() => (
             userService.getUser() ?

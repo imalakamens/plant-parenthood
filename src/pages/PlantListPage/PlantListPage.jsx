@@ -7,7 +7,11 @@ function PlantListPage(props) {
         <h1>Available Plants</h1>
         <div>
             {props.plants.map( plant =>
-            <PlantListItem key={plant._id} plant={plant} />
+            <PlantListItem
+                key={plant._id}
+                plant={plant} 
+                handleDeletePlant={props.handleDeletePlant}
+            />
             )}
         </div>
         </>
