@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../../logo.svg';
 import './App.css';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation/Navigation';
 import PlantListPage from '../PlantListPage/PlantListPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
@@ -17,7 +17,6 @@ class App extends Component {
       plants: [],
       user: userService.getUser()
     };
-
   }
 
   handleAddPlant = async (newPlantData) => {
@@ -26,7 +25,7 @@ class App extends Component {
       state => ({ 
         plants: [...state.plants, newPlant],
       }),
-      () => this.history.push('/')
+      () => this.props.history.push('/')
     );
   }
 
@@ -60,7 +59,9 @@ class App extends Component {
           </Route>
           <Route exact path="/addplant" render={() =>
             userService.getUser() ?
-            <AddPlantPage />
+            <AddPlantPage
+              handleAddPlant={this.handleAddPlant}
+            />
             :
             <Redirect to="/login" />
           } />
