@@ -5,7 +5,7 @@ import { Route, Switch, Redirect} from 'react-router-dom';
 import Navigation from '../../components/Navigation/Navigation';
 import PlantListPage from '../PlantListPage/PlantListPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
-import plantService from '../../utils/plantService';
+import  * as plantAPI from '../../utils/plantService';
 import userService from '../../utils/userService';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   handleAddPlant = async (newPlantData) => {
-    const newPlant = await plantService.create(newPlantData);
+    const newPlant = await plantAPI.create(newPlantData);
     this.setState(
       state => ({ 
         plants: [...state.plants, newPlant],
@@ -43,7 +43,7 @@ class App extends Component {
   /*----lifecycle methods----*/
 
   async componentDidMount() {
-    const plants = await plantService.getAll();
+    const plants = await plantAPI.getAll();
     this.setState({ plants });
   }
 
@@ -55,6 +55,7 @@ class App extends Component {
           handleLogout={this.handleLogout}
           user={this.state.user}
         />
+        {this.state.user ? <h2>Hi, {this.state.user.name}</h2> : <h2>You're Not logged in ☹️</h2> }
         <Switch>
           <Route exact path="/plants">
             <PlantListPage plants={this.state.plants} />

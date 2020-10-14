@@ -1,16 +1,11 @@
 import tokenService from './tokenService';
 const BASE_URL = '/api/plants';
 
-export default {
-  getAll,
-  create
-}
-
-function getAll() {
+export function getAll() {
   return fetch(BASE_URL).then(res => res.json());
 }
 
-function create(plant) {
+export function create(plant) {
   return fetch(BASE_URL, {
     method: 'POST',
     headers: {'content-type': 'application/json'},
