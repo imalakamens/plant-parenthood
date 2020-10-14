@@ -4,6 +4,7 @@ import './App.css';
 import { Route, Switch, Redirect} from 'react-router-dom';
 import Navigation from '../../components/Navigation/Navigation';
 import PlantListPage from '../PlantListPage/PlantListPage';
+import PlantDetailPage from '../PlantDetailPage/PlantDetailPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
 import  * as plantAPI from '../../utils/plantService';
 import userService from '../../utils/userService';
@@ -66,6 +67,9 @@ class App extends Component {
             :
             <Redirect to="/login" />
           )} />
+          <Route exact path="/details" render={({ location }) => 
+            <PlantDetailPage location={location} /> }
+          />
           <Route exact path="/signup" render={({ history }) =>
             <SignUpPage 
               handleSignupOrLogin={this.handleSignupOrLogin}
