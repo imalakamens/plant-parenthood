@@ -26,7 +26,7 @@ const Navigation = (props) => {
         <NavLink exact to="/plants">
             Plants
         </NavLink>
-        {props.user && <NavLink exact to="/addplant">
+        {/* Does this props.user need to be here? What is it doing?*/props.user && <NavLink exact to="/addplant">
             Place Plant
         </NavLink> }
     </div>

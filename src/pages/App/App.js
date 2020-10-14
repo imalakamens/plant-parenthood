@@ -6,6 +6,7 @@ import Navigation from '../../components/Navigation/Navigation';
 import PlantListPage from '../PlantListPage/PlantListPage';
 import PlantDetailPage from '../PlantDetailPage/PlantDetailPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
+import UpdatePlantPage from '../UpdatePlantPage/UpdatePlantPage';
 import  * as plantAPI from '../../utils/plantService';
 import userService from '../../utils/userService';
 import SignUpPage from '../SignUpPage/SignUpPage';
@@ -20,6 +21,18 @@ class App extends Component {
     };
   }
 
+  handleUpdateplant = async (updatedPlantData) => {
+    const updatedPlant = await plantAPI.update(updatedPlantData);
+    const newPlantsArr = this.state.plants.map( plant => 
+      plant._id === updatedPlant._id ? updatedPlant : plant  
+    );
+    this.setState(
+      { plants: newPlantsArr },
+      () => this.props.history.push('/')
+    );
+  };
+
+  
   handleDeletePlant = async (id) => {
     await plantAPI.deleteOne(id);
     this.setState(
@@ -77,6 +90,15 @@ class App extends Component {
           <Route exact path="/addplant" render={() => (
             userService.getUser() ?
             <AddPlantPage handleAddPlant={this.handleAddPlant} />
+            :
+            <Redirect to="/login" />
+          )} />
+          <Route exact path="/editplant" render={({ location }) => (
+            userService.getUser() ?
+            <UpdatePlantPage
+              location={location}
+              handleUpdatePlant={this.handleUpdateplant}
+            />
             :
             <Redirect to="/login" />
           )} />
