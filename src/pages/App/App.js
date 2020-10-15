@@ -84,6 +84,7 @@ class App extends Component {
           <Route exact path="/plants">
             <PlantListPage 
               plants={this.state.plants}
+              user={this.state.user}
               handleDeletePlant={this.handleDeletePlant}
             />
           </Route>

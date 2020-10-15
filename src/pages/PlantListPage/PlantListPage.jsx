@@ -9,7 +9,8 @@ function PlantListPage(props) {
             {props.plants.map( plant =>
             <PlantListItem
                 key={plant._id}
-                plant={plant} 
+                plant={plant}
+                user={props.user} 
                 handleDeletePlant={props.handleDeletePlant}
             />
             )}
