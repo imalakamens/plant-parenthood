@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 function PlantListItem({plant, handleDeletePlant}) {
     return (
-        <div>
+        <div className="card-body">
             <Link to={{ pathname:'/details', state:{plant} }}>
                 {plant.commonName} &nbsp;&nbsp;&nbsp;
             </Link>

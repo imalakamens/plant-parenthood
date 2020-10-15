@@ -1,3 +1,5 @@
 ul {
+  display: flex;
   list-style: none;
+  background-color: black;
 }
