@@ -5,12 +5,12 @@ function PlantListItem({plant, handleDeletePlant}) {
     return (
         <div>
             <Link to={{ pathname:'/details', state:{plant} }}>
-                {plant.commonName}
+                {plant.commonName} &nbsp;&nbsp;&nbsp;
             </Link>
-            <Link to={{ pathname:'/editplant', state:{plant} }}>
+            <Link className={"btn btn-primary"}to={{ pathname:'/editplant', state:{plant} }}>
                 Edit!
-            </Link>
-            <button onClick={() => handleDeletePlant(plant._id)}>
+            </Link>&nbsp;&nbsp;
+            <button className={"btn btn-danger"} onClick={() => handleDeletePlant(plant._id)}>
                 Delete!
             </button>
         </div>

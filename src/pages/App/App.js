@@ -83,13 +83,16 @@ class App extends Component {
         <Switch>
           <Route exact path="/plants">
             <PlantListPage 
-              plants={this.state.plants} 
+              plants={this.state.plants}
               handleDeletePlant={this.handleDeletePlant}
             />
           </Route>
           <Route exact path="/addplant" render={() => (
             userService.getUser() ?
-            <AddPlantPage handleAddPlant={this.handleAddPlant} />
+            <AddPlantPage
+              user={this.state.user}
+              handleAddPlant={this.handleAddPlant} 
+            />
             :
             <Redirect to="/login" />
           )} />

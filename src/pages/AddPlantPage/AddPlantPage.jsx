@@ -7,6 +7,7 @@ class AddPlantPage extends Component {
             commonName:'',
             scientificName:'',
             description:'',
+            owner: this.props.user
         }
     };
     

@@ -6,6 +6,7 @@ function PlantDetail({plant}) {
         {plant.commonName}
         {plant.scientificName}
         {plant.description}
+        {plant.owner.name}
         </>
     )
 }
