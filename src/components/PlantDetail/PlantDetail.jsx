@@ -11,7 +11,7 @@ function PlantDetail({plant}) {
             <div className="row">
             <div className="col">{plant.description}</div>
             </div>
-            <h5>{plant.owner}</h5>
+            <h5>{plant.owner.name}</h5>
         </div>
     )
 }

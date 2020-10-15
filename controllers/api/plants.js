@@ -47,7 +47,8 @@ async function create(req, res) {
 
 async function index(req, res) {
   try {
-    const plants = await Plant.find({});
+    const plants = await Plant.find({})
+    .populate('owner');
     res.status(200).json(plants);
   } catch(err) {
     res.status(404).json(err);
