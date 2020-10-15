@@ -56,7 +56,7 @@ class UpdatePlantPage extends Component {
                         </div>
                         <button
                             type="submit"
-                            className="btn"
+                            className="btn btn-primary"
                             disabled={this.state.invalidForm}
                         >
                             SAVE PLANT
