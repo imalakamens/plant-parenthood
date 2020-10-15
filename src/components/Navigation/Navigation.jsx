@@ -1,34 +1,55 @@
 import React from 'react';
+import './Navigation.css'
 import { NavLink, Link } from 'react-router-dom';
 
 const Navigation = (props) => {
     let nav = props.user ? 
     <div>
-        <NavLink exact to="/">
-            Now Logged In |
-        </NavLink>
-        <NavLink exact to="/plants">
-            Plants |
-        </NavLink>
-        <NavLink exact to="/addplant">
-            Place Plant |
-        </NavLink>
-        <Link to="" onClick={props.handleLogout}>Logout</Link>
+        <ul>
+            <li>
+                <NavLink exact to="/">
+                    Now Logged In
+                </NavLink>
+            </li>
+            <li> 
+                <NavLink exact to="/plants">
+                    Plants
+                </NavLink>
+            </li>
+            <li>
+                <NavLink exact to="/addplant">
+                    Place Plant
+                </NavLink>
+            </li>
+            <li>
+                <Link to="" onClick={props.handleLogout}>Logout</Link>
+            </li>
+        </ul>
     </div>
         :
     <div>
-        <NavLink exact to="/signup">
-            Sign Up |
-        </NavLink>
-        <NavLink exact to="/login">
-            Log In |
-        </NavLink>
-        <NavLink exact to="/plants">
-            Plants
-        </NavLink>
-        {/* Does this props.user need to be here? What is it doing?*/props.user && <NavLink exact to="/addplant">
-            Place Plant
-        </NavLink> }
+        <ul>
+            <li>
+                <NavLink exact to="/signup">
+                    Sign Up
+                </NavLink>
+            </li>
+            <li>
+                <NavLink exact to="/login">
+                    Log In
+                </NavLink>
+            </li>
+            <li>
+                <NavLink exact to="/plants">
+                    Plants
+                </NavLink>
+            </li>
+            <li>
+                <NavLink exact to="/addplant">
+                    Place Plant
+                </NavLink> 
+            </li>
+        </ul>
     </div>
     return(
         <nav>
