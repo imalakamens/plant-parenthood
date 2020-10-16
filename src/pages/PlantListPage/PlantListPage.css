@@ -1,7 +1,4 @@
-.card {
-  background-color: red;
-}
-
-.card-body {
-  background-color: cornsilk;
+.PlantListPage {
+  border: 1px dotted black;
+  /* display: flex; */
 }

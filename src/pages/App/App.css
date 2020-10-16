@@ -5,8 +5,11 @@ font-family: 'Peddana', serif;
 .App {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  justify-items: center;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
+  /*border: 1px dotted black;*/
 }
 
 .App-header {

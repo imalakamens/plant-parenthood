@@ -6,22 +6,20 @@ function PlantListItem({plant,user, handleDeletePlant}) {
     let content = plant.owner._id === user._id ?
             <div>
             <Link className={"btn btn-success"}to={{ pathname:'/editplant', state:{plant} }}>
-                Edit!
+                EDIT
             </Link>&nbsp;&nbsp;
             <button className={"btn btn-danger"} onClick={() => handleDeletePlant(plant._id)}>
-                Delete!
+                DELETE
             </button>
             </div>
             :
-            <div><button className="btn btn-info">button that does nothing</button></div>
+            <div><button className="btn btn-info">Not yours!</button></div>
     return (
-        <div className="card-body">
+        <div className="PlantListItem">
             <Link to={{ pathname:'/details', state:{plant} }}>
                 {plant.commonName} &nbsp;&nbsp;&nbsp;
             </Link>
             { content }
-            
-
         </div>
     );
 }
