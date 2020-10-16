@@ -1,0 +1,8 @@
+.PlantListItem {
+  border: 1px dotted red;
+  border-radius: 10px;
+  box-shadow: black;
+  width: 400px;
+  height: 400px;
+  margin: 9px;
+}

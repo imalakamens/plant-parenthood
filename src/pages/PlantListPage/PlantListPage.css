@@ -1,4 +1,14 @@
 .PlantListPage {
   border: 1px dotted black;
-  /* display: flex; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.PlantListPage-tamer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2px auto;
+  
 }
