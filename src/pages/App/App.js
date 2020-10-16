@@ -39,7 +39,7 @@ class App extends Component {
       state => ({
         plants: state.plants.filter( (plant) => plant._id !== id),
       }),
-      () => this.props.history.push('/')
+      () => this.props.history.push('/plants')
     )
   }
 
@@ -51,7 +51,7 @@ class App extends Component {
       }),
       () => { 
         console.log(this.props)
-        this.props.history.push('/')}
+        this.props.history.push('/plants')}
     );
   };
 
