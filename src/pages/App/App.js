@@ -63,14 +63,14 @@ class App extends Component {
     userService.logout();
     this.setState({ user: null }); 
   };
-
+  
   /*----lifecycle methods----*/
-
+  
   async componentDidMount() {
     const plants = await plantAPI.getAll();
     this.setState({ plants });
   }
-
+  
   render() {
     return (
       <div className="App">
@@ -78,8 +78,9 @@ class App extends Component {
         <Navigation 
           handleLogout={this.handleLogout}
           user={this.state.user}
-        />
-        {this.state.user ? <h2>Hi, {this.state.user.name}</h2> : <h2>You're Not logged in ☹️</h2> }
+          />
+        {this.state.user ? <h3>Hi, {this.state.user.name}!</h3> : <h2>You're Not logged in ☹️</h2> }
+          </header>
         <Switch>
           <Route exact path="/plants">
             <PlantListPage 
@@ -122,7 +123,6 @@ class App extends Component {
             />
           } />
         </Switch>
-        </header>
       </div>
     );
   }
