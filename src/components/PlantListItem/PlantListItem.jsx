@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function PlantListItem({plant,user, handleDeletePlant}) {
     let content = plant.owner._id === user._id ?
             <div>
-            <Link className={"btn btn-primary"}to={{ pathname:'/editplant', state:{plant} }}>
+            <Link className={"btn btn-success"}to={{ pathname:'/editplant', state:{plant} }}>
                 Edit!
             </Link>&nbsp;&nbsp;
             <button className={"btn btn-danger"} onClick={() => handleDeletePlant(plant._id)}>
@@ -13,7 +13,7 @@ function PlantListItem({plant,user, handleDeletePlant}) {
             </button>
             </div>
             :
-            <div><button>button that does nothing</button></div>
+            <div><button className="btn btn-info">button that does nothing</button></div>
     return (
         <div className="card-body">
             <Link to={{ pathname:'/details', state:{plant} }}>
