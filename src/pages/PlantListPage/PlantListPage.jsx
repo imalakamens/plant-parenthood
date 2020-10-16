@@ -13,7 +13,7 @@ class PlantListPage extends Component {
         return (
             <div className="PlantListPage">
                 <h1>Available Plants</h1>
-                <br />
+                <div className ="PlantListPage-tamer">
                     {this.props.plants.map( plant =>
                     <PlantListItem
                         key={plant._id}
@@ -22,6 +22,7 @@ class PlantListPage extends Component {
                         handleDeletePlant={this.props.handleDeletePlant}
                     />
                     )}
+                </div>
             </div>
         );
     }
