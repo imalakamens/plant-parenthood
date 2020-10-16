@@ -21,3 +21,6 @@ Check out the current build of the app [here](http://plantparenthoodapp.herokuap
 
 ## Future Features:
 
+## Sources:
+***
+[Cassidy Phillips](https://unsplash.com/@cassdays) (photos)
