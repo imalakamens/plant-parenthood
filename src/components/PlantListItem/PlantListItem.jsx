@@ -16,8 +16,8 @@ function PlantListItem({plant,user, handleDeletePlant}) {
             :
             <div><button className="btn btn-info">Not yours!</button></div>
     return (
-        <div className="PlantListItem">
-            <Link to={{ pathname:'/details', state:{plant} }}>
+        <div className="PlantListItem card">
+            <Link className="card-title" to={{ pathname:'/details', state:{plant} }}>
                 {plant.commonName} &nbsp;&nbsp;&nbsp;
             </Link>
             { content }

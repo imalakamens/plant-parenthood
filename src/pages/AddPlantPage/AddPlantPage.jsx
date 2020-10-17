@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './AddPlantPage.css'
 
 class AddPlantPage extends Component {
     state = {
@@ -28,7 +29,7 @@ class AddPlantPage extends Component {
 
     render() {
         return (
-            <>
+            <div className="AddPlantPage">
                 <h1>Plant Adoption Form</h1>
                         <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
                         <div className="form-group">
@@ -67,7 +68,7 @@ class AddPlantPage extends Component {
                             PLACE PLANT
                         </button>
                         </form>
-            </>
+            </div>
         );
 
     }

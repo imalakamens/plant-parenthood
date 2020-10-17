@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import './LogInPage.css'
 
 class LogInPage extends Component {
     state = {
@@ -28,7 +29,7 @@ class LogInPage extends Component {
 
     render() {
         return (
-          <div>
+          <div className="LogInPage">
             <header>Log In</header>
             <form onSubmit={this.handleSubmit} >
               <div>

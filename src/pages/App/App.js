@@ -12,6 +12,7 @@ import userService from '../../utils/userService';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
 
+
 class App extends Component {
   constructor() {
     super();
@@ -82,12 +83,16 @@ class App extends Component {
         {this.state.user ? <h3>Hi, {this.state.user.name}!</h3> : <h2>You're Not logged in ☹️</h2> }
           </header>
         <Switch>
-          <Route exact path="/plants">
+          <Route exact path="/plants" render={() => (
+          userService.getUser() ?
             <PlantListPage 
               plants={this.state.plants}
               user={this.state.user}
               handleDeletePlant={this.handleDeletePlant}
             />
+            :
+            <Redirect to="/login" />
+          )}>
           </Route>
           <Route exact path="/addplant" render={() => (
             userService.getUser() ?
@@ -107,8 +112,12 @@ class App extends Component {
             :
             <Redirect to="/login" />
           )} />
-          <Route exact path="/details" render={({ location }) => 
-            <PlantDetailPage location={location} /> }
+          <Route exact path="/details" render={({ location }) => (
+            userService.getUser() ? 
+            <PlantDetailPage location={location} /> 
+            :
+            <Redirect to="/login" />
+            )}
           />
           <Route exact path="/signup" render={({ history }) =>
             <SignUpPage 

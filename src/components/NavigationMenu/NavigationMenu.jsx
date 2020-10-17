@@ -5,10 +5,12 @@ import { NavLink, Link } from 'react-router-dom';
 const NavigationMenu = (props) => {
     let nav = props.user ? 
     <div>
-        <ul className='nav'>
-            <li className="nav-item">
+        <ul className="nav">
+            <li className="nav-item row align-self-start">
                 <NavLink exact to="/">
-                    Home
+                    <h2>
+                        .plant parenthood.
+                    </h2>
                 </NavLink>
             </li>
             <li> 
@@ -29,6 +31,13 @@ const NavigationMenu = (props) => {
         :
     <div>
         <ul className="nav">
+            <li className="nav-item row align-self-start">
+                <NavLink exact to="/">
+                    <h2>
+                        .plant parenthood.
+                    </h2>
+                </NavLink>
+                </li>
             <li className="nav-item">
                 <NavLink exact to="/signup">
                     Sign Up
@@ -38,16 +47,6 @@ const NavigationMenu = (props) => {
                 <NavLink exact to="/login">
                     Log In
                 </NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink exact to="/plants">
-                    Plants
-                </NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink exact to="/addplant">
-                    Place Plant
-                </NavLink> 
             </li>
         </ul>
     </div>

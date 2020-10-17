@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import userService from '../../utils/userService'
+import './SignUpPage.css'
 
 class SignUpPage extends Component {
     state= {
@@ -48,7 +49,7 @@ class SignUpPage extends Component {
 
     render() {
         return (
-            <>
+            <div className="SignUpPage">
                 <h1>Sign Up</h1>
                         <form
                         ref={this.formRef}
@@ -92,7 +93,7 @@ class SignUpPage extends Component {
                             SIGN UP
                             </button>
                         </form>
-            </>
+            </div>
         );
     }
 }
