@@ -4,9 +4,9 @@ import { NavLink, Link } from 'react-router-dom';
 
 const NavigationMenu = (props) => {
     let nav = props.user ? 
-    <div>
+    <div className="navbar">
         <ul className="nav">
-            <li className="nav-item row align-self-start">
+            <li className="nav-item d-flex justify-content-start">
                 <NavLink exact to="/">
                     <h2>
                         .plant parenthood.
@@ -29,7 +29,7 @@ const NavigationMenu = (props) => {
         </ul>
     </div>
         :
-    <div>
+    <div className="navbar">
         <ul className="nav">
             <li className="nav-item row align-self-start">
                 <NavLink exact to="/">

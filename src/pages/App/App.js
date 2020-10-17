@@ -75,11 +75,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <nav className="App-nav">
         <Navigation 
           handleLogout={this.handleLogout}
           user={this.state.user}
           />
+        </nav>
+        <header className="App-header">
         {this.state.user ? <h3>Hi, {this.state.user.name}!</h3> : <h2>You're Not logged in ☹️</h2> }
           </header>
         <Switch>

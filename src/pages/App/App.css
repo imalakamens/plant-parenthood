@@ -12,9 +12,16 @@ font-family: 'Peddana', serif;
 }
 
 .App-header {
- color: white;
+  width: max-content;
+  color: white;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.App-nav{
+  display: flex;
+  justify-content: center;
+  background-color: black;
 }
