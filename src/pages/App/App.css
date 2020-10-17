@@ -6,6 +6,7 @@ font-family: 'Peddana', serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   justify-items: center;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
@@ -24,4 +25,5 @@ font-family: 'Peddana', serif;
   display: flex;
   justify-content: center;
   background-color: black;
+  width: 100vw;
 }
