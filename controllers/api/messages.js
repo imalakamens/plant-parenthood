@@ -39,7 +39,7 @@ async function create(req, res) {
 async function index(req, res) {
   try {
     const messages = await Message.find({})
-    .populate('owner');
+    .populate('sender, recipient ');
     res.status(200).json(messages);
   } catch(err) {
     res.status(404).json(err);

@@ -7,7 +7,10 @@ import PlantListPage from '../PlantListPage/PlantListPage';
 import PlantDetailPage from '../PlantDetailPage/PlantDetailPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
 import UpdatePlantPage from '../UpdatePlantPage/UpdatePlantPage';
+import MessagesPage from '../MessagesPage/MessagesPage';
+import PlantAdoptPage from '../PlantAdoptPage/PlantAdoptPage';
 import  * as plantAPI from '../../utils/plantService';
+import  * as messageAPI from '../../utils/messageService';
 import userService from '../../utils/userService';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
@@ -22,6 +25,48 @@ class App extends Component {
       user: userService.getUser()
     };
   }
+
+  handleCreateMessage = async (newMessageData) => {
+    const newMessage = await messageAPI.create(newMessageData);
+    this.setState(
+      state => ({ 
+        messages: [...state.messages, newMessage],
+      }),
+       () => this.props.history.push('/')
+    );
+  }
+
+  handleUpdateplant = async (updatedPlantData) => {
+    const updatedPlant = await plantAPI.update(updatedPlantData);
+    const newPlantsArr = this.state.plants.map( plant => 
+      plant._id === updatedPlant._id ? updatedPlant : plant  
+    );
+    this.setState(
+      { plants: newPlantsArr },
+      () => this.props.history.push('/plants')
+    );
+  };
+
+  
+  handleDeletePlant = async (id) => {
+    await plantAPI.deleteOne(id);
+    this.setState(
+      state => ({
+        plants: state.plants.filter( (plant) => plant._id !== id),
+      }),
+      () => this.props.history.push('/plants')
+    )
+  };
+
+  handleAddPlant = async (newPlantData) => {
+    const newPlant = await plantAPI.create(newPlantData);
+    this.setState(
+      state => ({ 
+        plants: [...state.plants, newPlant],
+      }),
+      () => this.props.history.push('/plants') 
+    );
+  };
 
   handleUpdateplant = async (updatedPlantData) => {
     const updatedPlant = await plantAPI.update(updatedPlantData);
@@ -43,7 +88,7 @@ class App extends Component {
       }),
       () => this.props.history.push('/plants')
     )
-  }
+  };
 
   handleAddPlant = async (newPlantData) => {
     const newPlant = await plantAPI.create(newPlantData);
@@ -69,8 +114,10 @@ class App extends Component {
   /*----lifecycle methods----*/
   
   async componentDidMount() {
+    console.log('%cApp componentDidMount', 'background-color:rebeccapurple; color:white');
     const plants = await plantAPI.getAll();
-    this.setState({ plants });
+    const messages = await messageAPI.getAll();
+    this.setState({ plants, messages });
   }
   
   render() {
@@ -86,6 +133,13 @@ class App extends Component {
         {this.state.user ? <h3>Hi, {this.state.user.name}!</h3> : <h2>You're Not logged in ☹️</h2> }
           </header>
         <Switch>
+          <Route exact path="/" render={() => (
+          userService.getUser() ?
+            <MessagesPage />
+            :
+            <Redirect to="/login" />
+          )}>
+          </Route>
           <Route exact path="/plants" render={() => (
           userService.getUser() ?
             <PlantListPage 
@@ -118,6 +172,17 @@ class App extends Component {
           <Route exact path="/details" render={({ location }) => (
             userService.getUser() ? 
             <PlantDetailPage location={location} /> 
+            :
+            <Redirect to="/login" />
+            )}
+          />
+          <Route exact path="/adopt" render={({ location }) => (
+            userService.getUser() ?
+            <PlantAdoptPage 
+              location={location}
+              user={this.state.user}
+              handleCreateMessage={this.handleCreateMessage}
+            />
             :
             <Redirect to="/login" />
             )}
