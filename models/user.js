@@ -15,6 +15,7 @@ const userSchema = new Schema(
       unique: true
     },
     password: String,
+    messages: {type: Schema.Types.ObjectId, ref: 'Message'}
   },
   {
     timestamps: true

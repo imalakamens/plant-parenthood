@@ -9,8 +9,9 @@ const logger = require('morgan');
 require('dotenv').config();
 require('./config/database');
 
-const plantsRouter = require('./routes/api/plants');
 const usersRouter = require('./routes/api/users');
+const plantsRouter = require('./routes/api/plants');
+const messagesRouter = require('./routes/api/messages');
 
 const app = express();
 app.use(cors());
@@ -29,6 +30,7 @@ app.use('/api/users', usersRouter);
 app.use(require('./config/auth'));
 /*---Protected API/AJAX Routes---*/
 app.use('/api/plants', plantsRouter);
+app.use('/api/messages', messagesRouter);
 
 
 // Catch all route

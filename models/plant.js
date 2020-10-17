@@ -11,7 +11,6 @@ const plantSchema = new Schema (
       default: true
     },
     owner: {type: Schema.Types.ObjectId, ref: 'User'},
-    notes: String
   }, {
     timestamps: true
   }
