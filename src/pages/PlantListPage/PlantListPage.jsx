@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import PlantListItem from '../../components/PlantListItem/PlantListItem';
-import './PlantListPage.css'
-import * as plantAPI from '../../utils/plantService'
+import React, { Component } from 'react';
+import PlantListCard from '../../components/PlantListCard/PlantListCard';
+import './PlantListPage.css';
+import * as plantAPI from '../../utils/plantService';
 
 class PlantListPage extends Component {
-    async componentDidMount() {
-        const plants = await plantAPI.getAll();
-        this.setState({ plants });
-      }
+    // async componentDidMount() {
+    //     const plants = await plantAPI.getAll();
+    //     this.setState({ plants });
+    //   }
 
     render() {
         return (
@@ -15,7 +15,7 @@ class PlantListPage extends Component {
                 <h1>Available Plants</h1>
                 <div className ="PlantListPage-tamer">
                     {this.props.plants.map( plant =>
-                    <PlantListItem
+                    <PlantListCard
                         key={plant._id}
                         plant={plant}
                         user={this.props.user} 
