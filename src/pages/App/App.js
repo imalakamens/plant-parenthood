@@ -18,6 +18,7 @@ class App extends Component {
     super();
     this.state = {
       plants: [],
+      messages: [],
       user: userService.getUser()
     };
   }
