@@ -1,6 +1,5 @@
 import React from 'react';
 import MessageCard from '../../components/MessageCard/MessageCard'
-import MessageBody from '../../components/MessageBody/MessageBody'
 
 function MessagesPage(props) {
     return (

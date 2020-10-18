@@ -47,7 +47,7 @@ class PlantAdoptPage extends Component {
                             className="btn btn-primary"
                             disabled={this.state.invalidForm}
                         >
-                            PLACE PLANT
+                            SEND MESSAGE
                         </button>
                         </form>
             </div>

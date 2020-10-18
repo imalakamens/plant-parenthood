@@ -2,7 +2,7 @@ import React from 'react';
 import MessageBody from '../../components/MessageBody/MessageBody';
 
 
-function PlantDetailPage(props) {
+function MessageBodyPage(props) {
     return( 
         <>
             <MessageBody 
@@ -12,4 +12,4 @@ function PlantDetailPage(props) {
     )
 }
 
-export default PlantDetailPage;
+export default MessageBodyPage;
