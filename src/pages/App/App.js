@@ -8,6 +8,7 @@ import PlantDetailPage from '../PlantDetailPage/PlantDetailPage';
 import AddPlantPage from '../AddPlantPage/AddPlantPage';
 import UpdatePlantPage from '../UpdatePlantPage/UpdatePlantPage';
 import MessagesPage from '../MessagesPage/MessagesPage';
+import MessageBodyPage from '../MessageBodyPage/MessageBodyPage';
 import PlantAdoptPage from '../PlantAdoptPage/PlantAdoptPage';
 import  * as plantAPI from '../../utils/plantService';
 import  * as messageAPI from '../../utils/messageService';
@@ -143,17 +144,25 @@ class App extends Component {
         {this.state.user ? <h3>Hi, {this.state.user.name}!</h3> : <h2>You're Not logged in ☹️</h2> }
           </header>
         <Switch>
-          <Route exact path="/" render={() => (
+          <Route exact path="/" render={({location}) => (
           userService.getUser() ?
             <MessagesPage 
               messages={this.state.messages}
               user={this.state.user}
               handleDeleteMessage={this.handleDeleteMessage}
+              location={location}
             />
             :
             <Redirect to="/login" />
           )}>
           </Route>
+          <Route exact path="/messagebody" render={({ location }) => (
+            userService.getUser() ? 
+            <MessageBodyPage location={location} /> 
+            :
+            <Redirect to="/login" />
+            )}
+          />
           <Route exact path="/plants" render={() => (
           userService.getUser() ?
             <PlantListPage 

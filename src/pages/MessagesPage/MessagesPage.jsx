@@ -1,37 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MessageCard from '../../components/MessageCard/MessageCard'
+import MessageBody from '../../components/MessageBody/MessageBody'
 
-// function MessagesPage(props) {
-//     return (
+function MessagesPage(props) {
+    return (
 
-//             <div className="MessagesPage">
-//                     {props.messages.map( message =>
-//                     <MessageCard
-//                         key={message._id}
-//                         message={message}
-//                         user={props.user} 
-//                         handleDeleteMessage={props.handleDeleteMessage}
-//                     />
-//                     )}
-//             </div>
-//     )
-// }
-
-class MessagesPage extends Component {
-    render() {
-        return (
             <div className="MessagesPage">
-            {this.props.messages.map( message =>
-            <MessageCard
-                key={message._id}
-                message={message}
-                user={this.props.user} 
-                handleDeleteMessage={this.props.handleDeleteMessage}
-            />
-            )}
-    </div>
-        )
-    }
+                    {props.messages.map( message =>
+                    <MessageCard
+                        key={message._id}
+                        message={message}
+                        user={props.user} 
+                        handleDeleteMessage={props.handleDeleteMessage}
+                    />
+                    )}
+            </div>
+    )
 }
 
 export default MessagesPage;
