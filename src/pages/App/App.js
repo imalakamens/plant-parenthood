@@ -26,6 +26,16 @@ class App extends Component {
     };
   }
 
+  handleDeleteMessage = async (id) => {
+    await messageAPI.deleteOne(id);
+    this.setState(
+      state => ({
+        messages: state.messages.filter( (message) => message._id !== id),
+      }),
+      () => this.props.history.push('/')
+    )
+  };
+
   handleCreateMessage = async (newMessageData) => {
     const newMessage = await messageAPI.create(newMessageData);
     this.setState(
@@ -138,6 +148,7 @@ class App extends Component {
             <MessagesPage 
               messages={this.state.messages}
               user={this.state.user}
+              handleDeleteMessage={this.handleDeleteMessage}
             />
             :
             <Redirect to="/login" />
