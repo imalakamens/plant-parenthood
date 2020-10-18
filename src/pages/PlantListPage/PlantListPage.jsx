@@ -3,11 +3,18 @@ import PlantListCard from '../../components/PlantListCard/PlantListCard';
 import './PlantListPage.css';
 import * as plantAPI from '../../utils/plantService';
 
+import userService from '../../utils/userService';
+
 class PlantListPage extends Component {
-    // async componentDidMount() {
-    //     const plants = await plantAPI.getAll();
-    //     this.setState({ plants });
-    //   }
+    async componentDidMount() {
+        const plants = await plantAPI.getAll();
+        userService.getUser()
+        this.setState({ ...plants });
+    }
+
+    async componentDidUpdate() {
+        
+    }
 
     render() {
         return (
