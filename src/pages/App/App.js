@@ -135,7 +135,10 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => (
           userService.getUser() ?
-            <MessagesPage />
+            <MessagesPage 
+              messages={this.state.messages}
+              user={this.state.user}
+            />
             :
             <Redirect to="/login" />
           )}>
