@@ -1,4 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Plant Parenthood
 ![plant parenthood logo](https://i.imgur.com/X5QbOCu.png)
@@ -27,3 +26,4 @@ Check out the latest build of the app [here](http://plantparenthoodapp.herokuapp
 
 ## Sources:
 [Nahil Naseer](https://unsplash.com/@nahilnaseer) (Background Image)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
