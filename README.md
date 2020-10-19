@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Plant Parenthood
 ![plant parenthood logo](https://i.imgur.com/X5QbOCu.png)
-Plant Parenthood is a plant adoption/"placement" app. With it a user may log in, view plants looking for a home, as well as try to find a home for their own plants!
+Plant Parenthood is a plant adoption/"placement" app made to simplify communication among plant lovers.. With it a user may log in, view plants looking for a home, and try to sell their own plants!
 
 ## Screenshots:
 ![plant parenthood](https://i.imgur.com/SI3vTPN.jpg)
