@@ -22,7 +22,8 @@ Check out the latest build of the app [here](http://plantparenthoodapp.herokuapp
 
 ## Future Features:
 - Integration of 3rd party API to populate images and other plant data
-- Improving responsive design and messaging/chat featues
+- Improved responsive design
+- Improved messaging/chat featues
 
 ## Sources:
 [Nahil Naseer](https://unsplash.com/@nahilnaseer) (Background Image)
