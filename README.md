@@ -7,7 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Plant Parenthood is a plant adoption/"placement" app made to simplify communication among plant lovers.. With it a user may log in, view plants looking for a home, and try to sell their own plants!
 
 ## Screenshots:
-![plant parenthood](https://i.imgur.com/SI3vTPN.jpg)
+![plant parenthood index](https://i.imgur.com/SI3vTPN.jpg)
+![plant parenthood add form](https://i.imgur.com/cLhNl29.png)
 ## Technologies Used:
 - JavaScript
 - Node.js & Express
