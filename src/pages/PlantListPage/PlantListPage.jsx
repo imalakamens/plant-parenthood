@@ -15,6 +15,7 @@ class PlantListPage extends Component {
         return (
             <div className="PlantListPage">
                 <h1>Available Plants</h1>
+                <div className="break"></div>
                 <div className ="PlantListPage-tamer">
                     {this.props.plants.map( plant =>
                     <PlantListCard
