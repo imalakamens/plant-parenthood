@@ -27,6 +27,9 @@ class AddPlantPage extends Component {
         });
     };
 
+    /*---Lifecycle Mehods---*/
+    
+
     render() {
         return (
             <div className="AddPlantPage">

@@ -17,14 +17,11 @@ import LogInPage from '../LogInPage/LogInPage';
 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
+    state = {
       plants: [],
       messages: [],
       user: userService.getUser()
     };
-  }
 
   handleDeleteMessage = async (id) => {
     await messageAPI.deleteOne(id);
@@ -45,7 +42,7 @@ class App extends Component {
        () => this.props.history.push('/')
     );
   }
-
+  
   handleUpdateplant = async (updatedPlantData) => {
     const updatedPlant = await plantAPI.update(updatedPlantData);
     const newPlantsArr = this.state.plants.map( plant => 
@@ -74,41 +71,7 @@ class App extends Component {
       state => ({ 
         plants: [...state.plants, newPlant],
       }),
-      () => this.props.history.push('/plants') 
-    );
-  };
-
-  handleUpdateplant = async (updatedPlantData) => {
-    const updatedPlant = await plantAPI.update(updatedPlantData);
-    const newPlantsArr = this.state.plants.map( plant => 
-      plant._id === updatedPlant._id ? updatedPlant : plant  
-    );
-    this.setState(
-      { plants: newPlantsArr },
-      () => this.props.history.push('/')
-    );
-  };
-
-  
-  handleDeletePlant = async (id) => {
-    await plantAPI.deleteOne(id);
-    this.setState(
-      state => ({
-        plants: state.plants.filter( (plant) => plant._id !== id),
-      }),
       () => this.props.history.push('/plants')
-    )
-  };
-
-  handleAddPlant = async (newPlantData) => {
-    const newPlant = await plantAPI.create(newPlantData);
-    this.setState(
-      state => ({ 
-        plants: [...state.plants, newPlant],
-      }),
-      () => { 
-        console.log(this.props)
-        this.props.history.push('/plants')}
     );
   };
 
@@ -124,7 +87,6 @@ class App extends Component {
   /*----lifecycle methods----*/
   
   async componentDidMount() {
-    console.log('%cApp componentDidMount', 'background-color:rebeccapurple; color:white');
     const plants = await plantAPI.getAll();
     const messages = await messageAPI.getAll();
     this.setState({ plants, messages });

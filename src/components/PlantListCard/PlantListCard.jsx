@@ -4,7 +4,7 @@ import './PlantListCard.css'
 
 
 function PlantListCard({plant,user, handleDeletePlant}) {
-    let content = plant.owner._id === user._id ?
+    let controls = plant.owner._id === user._id ?
             <div>
                 <Link className={"btn btn-success"}to={{ pathname:'/editplant', state:{plant} }}>
                     EDIT
@@ -24,7 +24,7 @@ function PlantListCard({plant,user, handleDeletePlant}) {
             <Link className="card-title" to={{ pathname:'/details', state:{plant} }}>
                 {plant.commonName} &nbsp;&nbsp;&nbsp;
             </Link>
-            { content }
+            { controls }
         </div>
     );
 }
