@@ -40,6 +40,7 @@ async function create(req, res) {
   try {
     req.body.owner = req.user._id;
     const plant = await Plant.create(req.body);
+    await plant.populate('owner').execPopulate();
     res.status(201).json(plant);
   } catch(err) {
     res.status(404).json(err);

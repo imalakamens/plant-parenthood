@@ -17,11 +17,14 @@ import LogInPage from '../LogInPage/LogInPage';
 
 
 class App extends Component {
-    state = {
+  constructor() {
+    super();
+    this.state = {
       plants: [],
       messages: [],
       user: userService.getUser()
     };
+  }
 
   handleDeleteMessage = async (id) => {
     await messageAPI.deleteOne(id);
