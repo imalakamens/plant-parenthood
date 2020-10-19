@@ -18,7 +18,6 @@ function signup(user) {
 }
 
 function getUser() {
-  console.log('%c getUser fired off', 'background-color: black, font: #bada55')
   return tokenService.getUserFromToken();
 }
 

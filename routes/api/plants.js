@@ -9,13 +9,13 @@ router.get('/', plantsCtrl.index);
 router.get('/', plantsCtrl.show);
 /*----Protected Routes----*/
 router.use(require('../../config/auth'));
-router.post('/', plantsCtrl.create);
+router.post('/',checkAuth, plantsCtrl.create);
 router.delete('/:id', plantsCtrl.delete);
 router.put('/:id', plantsCtrl.update);
 
 
 /*---Helper Functions---*/
-function chechAuth(req, res, next) {
+function checkAuth(req, res, next) {
   if (req.user) return next();
   return res.status(401).json({ msg: 'Not Authorized' });
 }

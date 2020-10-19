@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import PlantListCard from '../../components/PlantListCard/PlantListCard';
 import './PlantListPage.css';
+import * as plantAPI from '../../utils/plantService';
 
-
-import userService from '../../utils/userService';
 
 class PlantListPage extends Component {
-
     render() {
         return (
             <div className="PlantListPage">

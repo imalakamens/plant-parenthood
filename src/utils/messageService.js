@@ -8,7 +8,10 @@ export function getAll() {
 export function create(message) {
   return fetch(BASE_URL, {
     method: 'POST',
-    headers: {'content-type': 'application/json'},
+    headers: {
+      'content-type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    },
     body: JSON.stringify(message)
   }).then(res => res.json());
 }
@@ -22,7 +25,9 @@ export function deleteOne(id) {
 export function update(message) {
   return fetch(`${BASE_URL}/${message._id}`, {
     method: 'PUT',
-    headers: {'content-type': 'application/json'},
+    headers: {'content-type': 'application/json',
+    'Authorization': 'Bearer ' + tokenService.getToken()
+  },
     body: JSON.stringify(message)
   }).then(res => res.json());
 }

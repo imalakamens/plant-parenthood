@@ -7,8 +7,7 @@ class AddPlantPage extends Component {
         formData: {
             commonName:'',
             scientificName:'',
-            description:'',
-            owner: this.props.user
+            description:''
         }
     };
     
