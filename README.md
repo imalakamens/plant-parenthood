@@ -1,25 +1,25 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Plant Parenthood
-
+![plant parenthood logo](https://i.imgur.com/X5QbOCu.png)
 Plant Parenthood is a plant adoption/"placement" app. With it a user may log in, view plants looking for a home, as well as try to find a home for their own plants!
 
 ## Screenshots:
-Screenshots coming soon...
-
+![plant parenthood](https://i.imgur.com/SI3vTPN.jpg)
 ## Technologies Used:
 - JavaScript
 - Node.js & Express
 - MongoDb
 - React
-- Bootstrap 
+- Bootstrap 4
 
 ## Getting Started:
 
-Check out the current build of the app [here](http://plantparenthoodapp.herokuapp.com/)!
+Check out the latest build of the app [here](http://plantparenthoodapp.herokuapp.com/)!
 
 ## Future Features:
+- Integration of 3rd party API to populate images and other plant data
+- Improving responsive design and messaging/chat featues
 
 ## Sources:
-[Cassidy Phillips](https://unsplash.com/@cassdays) (photos)
-[Nahil Naseer](https://unsplash.com/@nahilnaseer) (photos)
+[Nahil Naseer](https://unsplash.com/@nahilnaseer) (Background Image)
