@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
+  font-size: 2em;
 }
 
 code {
@@ -18,14 +19,13 @@ code {
   background-color: rgba(255, 255, 255, .7);
   border: 1px solid black;
   border-radius: 10px;
-  width: 200px;
-  height: 150px;
+  width: 20rem;
+  height: 15rem;
   margin: 9px;
 
 }
 
 .card-body {
-  border-radius: 10px;
 }
 
 .message {
