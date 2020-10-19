@@ -20,8 +20,9 @@ code {
   border: 1px solid black;
   border-radius: 10px;
   width: 20rem;
-  height: 15rem;
+  min-height: 15rem;
   margin: 9px;
+  color: black;
 
 }
 

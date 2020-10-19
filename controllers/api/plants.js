@@ -6,7 +6,6 @@ module.exports = {
   show,
   update,
   delete: deleteOne
-
 }
 
 async function deleteOne(req, res) {
