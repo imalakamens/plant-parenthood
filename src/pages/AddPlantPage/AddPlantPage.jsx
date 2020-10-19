@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import * as plantAPI from '../../utils/plantService'
 import './AddPlantPage.css'
 
 class AddPlantPage extends Component {

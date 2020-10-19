@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PlantListCard from '../../components/PlantListCard/PlantListCard';
-import * as plantAPI from '../../utils/plantService'
-import * as messageAPI from '../../utils/messageService'
 import './PlantListPage.css';
 import userService from '../../utils/userService';
 
