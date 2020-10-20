@@ -1,4 +1,5 @@
 const Message = require('../../models/message');
+const plant = require('../../models/plant');
 
 module.exports = {
   index,
@@ -29,7 +30,9 @@ async function show(req, res) {
 
 async function create(req, res) {
   try {
+    req.body.sender = req.user._id
     const message = await Message.create(req.body);
+    await message.populate('sender recipient').execPopulate();
     res.status(201).json(message);
   } catch(err) {
     res.status(404).json(err);

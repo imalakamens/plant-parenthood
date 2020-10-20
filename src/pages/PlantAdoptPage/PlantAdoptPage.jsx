@@ -6,7 +6,7 @@ class PlantAdoptPage extends Component {
         invalidForm: true,
         formData: {
             body:'',
-            sender: this.props.user,
+            sender: '',
             recipient: this.props.location.state.plant.owner
             
         }
