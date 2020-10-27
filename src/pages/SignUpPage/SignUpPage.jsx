@@ -6,7 +6,8 @@ class SignUpPage extends Component {
     state= {
         invalidForm: true,
         formData: {
-            name: '',
+            first_name: '',
+            last_name:'',
             email: '',
             password: '',
             message: ''
@@ -19,7 +20,8 @@ class SignUpPage extends Component {
         e.preventDefault();
         try {
           await userService.signup({
-            name: this.state.formData.name,
+            first_name: this.state.formData.name,
+            last_name: this.state.formData.last_name,
             email: this.state.formData.email,
             password: this.state.formData.password
           });
@@ -57,13 +59,20 @@ class SignUpPage extends Component {
                         onSubmit={this.handleSubmit}
                         >
                         <div className="form-group">
-                            <label>Your name (required)</label>
+                            <label>First name (required)</label>
                             <input
                             className="form-control"
                             name="name"
-                            value={this.state.formData.name}
+                            value={this.state.formData.first_name}
                             onChange={this.handleChange}
                             required
+                            />
+                            <label>Last name</label>
+                            <input
+                            className="form-control"
+                            name="name"
+                            value={this.state.formData.last_name}
+                            onChange={this.handleChange}
                             />
                         </div>
                         <div className="form-group">
