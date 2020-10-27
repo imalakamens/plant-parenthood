@@ -20,8 +20,8 @@ class SignUpPage extends Component {
         e.preventDefault();
         try {
           await userService.signup({
-            firstName: this.state.formData.firstName,
-            lastName: this.state.formData.lastName,
+            firstName: this.state.formData.first_name,
+            lastName: this.state.formData.last_name,
             email: this.state.formData.email,
             password: this.state.formData.password
           });
@@ -63,7 +63,7 @@ class SignUpPage extends Component {
                             <input
                             className="form-control"
                             name="first_name"
-                            value={this.state.formData.firstName}
+                            value={this.state.formData.first_name}
                             onChange={this.handleChange}
                             required
                             />
@@ -71,7 +71,7 @@ class SignUpPage extends Component {
                             <input
                             className="form-control"
                             name="last_name"
-                            value={this.state.formData.lastName}
+                            value={this.state.formData.last_name}
                             onChange={this.handleChange}
                             />
                         </div>
