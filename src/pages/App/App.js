@@ -105,7 +105,7 @@ class App extends Component {
           />
         </nav>
         <header className="App-header">
-        {this.state.user ? <h3>Hi, {this.state.user.first_name}!</h3> : <h2>You're Not logged in ☹️</h2> }
+        {this.state.user ? <h3>Hi, {this.state.user.firstName}!</h3> : <h2>You're Not logged in ☹️</h2> }
           </header>
         <Switch>
           <Route exact path="/" render={({location}) => (
