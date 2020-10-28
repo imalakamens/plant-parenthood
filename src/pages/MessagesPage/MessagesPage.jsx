@@ -5,6 +5,7 @@ function MessagesPage(props) {
     return (
 
             <div className="MessagesPage">
+                {props.user ? <h3>Hi, {props.user.firstName}!</h3> : <h2>You're Not logged in ☹️</h2> }
                     {props.messages.map( message =>
                     <MessageCard
                         key={message._id}
