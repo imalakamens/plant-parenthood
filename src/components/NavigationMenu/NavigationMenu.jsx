@@ -9,7 +9,7 @@ const NavigationMenu = (props) => {
             <li className="nav-item d-flex justify-content-start">
                 <NavLink exact to="/">
                     <h2>
-                        .plant parenthood.
+                        plant parenthood.
                     </h2>
                 </NavLink>
             </li>
